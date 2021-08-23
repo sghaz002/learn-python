@@ -1,0 +1,50 @@
+weight = 8.4
+
+#normal rates
+
+if weight <= 2:
+  NormalCost = 20+1.50*weight
+elif weight <= 6 and weight > 2:
+  NormalCost = 20+3*weight
+elif weight <= 10 and weight > 6:
+  NormalCost = 20+4*weight
+else:
+  NormalCost = 20+4.75*weight
+print('The cost of the shipping if using NORMAL shipping is',NormalCost)
+
+#premium rates
+PremiumCost = 125
+print('The cost of the shipping if using PREMIUM shipping is',PremiumCost)
+
+#drone rates
+if weight <= 2:
+  DroneCost = 4.5*weight
+elif weight <= 6 and weight > 2:
+  DroneCost = 9*weight
+elif weight <= 10 and weight > 6:
+  DroneCost = 12*weight
+else:
+  DroneCost = 14.25*weight
+print('The cost of the shipping if using DRONE shipping is',DroneCost)
+
+#best rate
+if NormalCost < PremiumCost and NormalCost < DroneCost:
+  print('The cheapest shipping method is Normal Cost with a rate of',NormalCost)
+elif PremiumCost < NormalCost and PremiumCost < DroneCost:
+  print('The cheapest shipping method is Premium Cost with a rate of',PremiumCost)
+elif DroneCost < NormalCost and DroneCost < PremiumCost:
+  print('The cheapest shipping method is Drone Cost with a rate of',DroneCost)
+
+#take care of the situations which the costs are the same
+elif NormalCost < PremiumCost and NormalCost == DroneCost:
+  print('The cheapest shipping method is either Normal Cost or Drone Cost, which are the same, with a rate of',NormalCost)
+elif NormalCost < DroneCost and NormalCost == PremiumCost:
+  print('The cheapest shipping method is either Normal Cost or Premium Cost, which are the same, with a rate of',NormalCost)
+elif PremiumCost < NormalCost and PremiumCost == DroneCost:
+  print('The cheapest shipping method is either Premium Cost or Drone Cost, which are the same, with a rate of',PremiumCost)
+elif PremiumCost < DroneCost and PremiumCost == NormalCost:
+  print('The cheapest shipping method is either Premium Cost or Normal Cost, which are the same, with a rate of',PremiumCost)
+elif DroneCost < PremiumCost and DroneCost == NormalCost:
+  print('The cheapest shipping method is either Drone Cost or Normal Cost, which are the same, with a rate of',DroneCost)
+elif DroneCost < NormalCost and DroneCost == PremiumCost:
+  print('The cheapest shipping method is either Drone Cost or Premium Cost, which are the same, with a rate of',DroneCost)
